@@ -39,6 +39,8 @@ npm install
 node app.js
 
 Frontend Setup
+![image](https://github.com/user-attachments/assets/5c0cb8a5-e8fc-4457-a9a4-d145fe8a2b66)
+![image](https://github.com/user-attachments/assets/9b86377f-7b66-4f3a-82af-a4271cf80d93)
 
 sh
 
