@@ -1,65 +1,76 @@
-Word to PDF Converter
+<div align="center">
 
-Welcome to the Word to PDF Converter project! This application allows users to upload Microsoft Word documents and convert them to PDF format seamlessly.
-Features
+# 📄 EasyConvert: Word to PDF in One Click
 
-    File Upload: Users can easily upload .doc or .docx files from their local machine.
-    Real-time Conversion: Instant conversion of Word documents to PDF format.
-    Downloadable PDFs: Converted PDFs are available for immediate download.
-    Responsive UI: User-friendly and responsive interface for a smooth experience across devices.
+**Upload a `.doc` or `.docx` file and download it as a PDF instantly.**
 
-Technologies Used
+![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?logo=express&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=white)
+![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
 
-    Backend:
-        Node.js
-        Express
-        Multer (for handling file uploads)
-        docx-pdf (for converting Word documents to PDF)
-    Frontend:
-        React
-        Axios (for making HTTP requests)
-        Tailwind CSS (for styling)
-        React Icons
+### [🌐 Live demo](https://convertio-wsna.vercel.app/)
 
-Installation
+</div>
 
-    Clone the repository
+---
 
-    sh
+## ✨ Features
 
-git clone https://github.com/yourusername/word-to-pdf-converter.git
-cd word-to-pdf-converter
+- **Pick a Word file** (`.doc` or `.docx` only)
+- **One-click conversion** to PDF on the server
+- The **PDF downloads automatically** when it's ready
+- Clean, responsive UI built with Tailwind CSS and DaisyUI
+- GitHub Actions workflow for Node.js CI
 
-Backend Setup
+## 🧠 How it works
 
-sh
+```mermaid
+sequenceDiagram
+    participant U as User (React)
+    participant S as Express server
+    U->>S: POST /convertFile (multipart, file)
+    S->>S: Multer saves the upload to /uploads
+    S->>S: docx-pdf converts it to /files/<name>.pdf
+    S-->>U: res.download(PDF)
+```
 
-cd backend
-npm install
-node app.js
+## 📡 API
 
-Frontend Setup
-![image](https://github.com/user-attachments/assets/5c0cb8a5-e8fc-4457-a9a4-d145fe8a2b66)
-![image](https://github.com/user-attachments/assets/9b86377f-7b66-4f3a-82af-a4271cf80d93)
+| Method | Endpoint | Body | Response |
+|:---:|---|---|---|
+| `POST` | `/convertFile` | `multipart/form-data` with field `file` | The converted PDF as a download |
 
-sh
+```bash
+curl -X POST http://localhost:3000/convertFile -F "file=@resume.docx" -o resume.pdf
+```
 
-    cd ../frontend
-    npm install
-    npm start
+## 🚀 Run locally
 
-Usage
+```bash
+git clone https://github.com/mayurvij22/EasyConvert-PDF-One-Click-Word-to-PDF-Solution.git
+cd EasyConvert-PDF-One-Click-Word-to-PDF-Solution
 
-    Navigate to http://localhost:3000 in your browser.
-    Click on the "Choose File" button to upload your Word document.
-    Click on the "Convert File" button to convert the document to PDF.
-    Download the converted PDF file.
+# Backend
+cd Backend && npm install && npm start
 
-Project Structure
+# Frontend (new terminal)
+cd Frontend && npm install && npm run dev
+```
 
-    Backend (backend): Contains the Express server and file conversion logic.
-    Frontend (frontend): Contains the React application for the user interface.
+## 🛠️ Tech stack
 
-Contributing
+| Layer | Technology |
+|---|---|
+| Frontend | React, Vite, Tailwind CSS, DaisyUI, Axios |
+| Backend | Node.js, Express, Multer, docx-pdf |
+| CI | GitHub Actions |
 
-We welcome contributions to improve this project! Feel free to submit a pull request or open an issue for any bugs or feature requests.
+---
+
+<div align="center">
+
+Made by **[Mayur Patil](https://github.com/mayurvij22)**
+
+</div>
